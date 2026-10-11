@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>BOON D' BOT | Crisis Response Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">B</span><div><strong>BOON D' BOT</strong><small>CRISIS RESPONSE ASSISTANT</small></div></div>
+      <div class="sidebar-label">WORKSPACE</div>
+      <a class="nav-item active" href="#overview">◈ <span>Overview</span></a>
+      <a class="nav-item" href="#assistant">✳ <span>Emergency assistant</span></a>
+      <a class="nav-item" href="#resources">⌖ <span>Help resources</span></a>
+      <a class="nav-item" href="#safety">盾 <span>Safety & status</span></a>
+      <div class="sidebar-bottom"><span class="pulse"></span><span>Prototype mode</span><small>Phase 1 · Day 1</small></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><div class="eyebrow">PERSONAL CRISIS COMPANION</div><h1>Emergency overview</h1></div>
+        <div class="demo-badge"><span></span> DEMO MODE — NO REAL ALERTS</div>
+      </header>
+
+      <section class="welcome-card" id="overview">
+        <div class="welcome-copy">
+          <div class="eyebrow light">STAY CALM. TAKE THE NEXT STEP.</div>
+          <h2>Help should be easier to reach.</h2>
+          <p>BDB brings emergency guidance, location-aware assistance, and essential resources into one place.</p>
+          <div class="welcome-actions">
+            <button class="btn btn-danger" id="sosButton">⚠ Activate SOS demo</button>
+            <a class="btn btn-ghost" href="#assistant">Talk to BDB <span>→</span></a>
+          </div>
+        </div>
+        <div class="signal-art" aria-hidden="true"><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="ring ring-three"></div><div class="signal-core">BDB</div><span class="signal-dot dot-one"></span><span class="signal-dot dot-two"></span></div>
+      </section>
+
+      <section class="notice-strip">
+        <span class="notice-icon">i</span>
+        <p><strong>Prototype notice:</strong> SOS, service listings, and chatbot replies are demo-only. This website does not contact emergency services or verify live conditions.</p>
+      </section>
+
+      <section class="section-heading"><div><div class="eyebrow">QUICK ACCESS</div><h2>Emergency tools</h2></div><span class="subtle">Built for clarity under pressure</span></section>
+      <section class="tool-grid">
+        <a class="tool-card" href="#assistant"><span class="tool-icon purple">✳</span><strong>AI emergency assistant</strong><p>Describe what is happening and get concise demo guidance.</p><span class="card-link">Open assistant ↗</span></a>
+        <button class="tool-card" id="locationButton"><span class="tool-icon blue">⌖</span><strong>My location</strong><p id="locationText">Location has not been requested.</p><span class="card-link">Check device location ↗</span></button>
+        <a class="tool-card" href="#resources"><span class="tool-icon green">＋</span><strong>Help resources</strong><p>Browse clearly labelled sample emergency services.</p><span class="card-link">View directory ↗</span></a>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel chat-panel" id="assistant">
+          <div class="panel-heading"><div><div class="eyebrow">BDB ASSISTANT</div><h2>What do you need help with?</h2></div><span class="online-pill"><i></i> Demo online</span></div>
+          <div class="chat-log" id="chatLog" aria-live="polite">
+            <div class="message bot-message"><div class="avatar">B</div><div><small>BDB · ASSISTANT</small><p>I'm here to help you work through the next step. Tell me what is happening. If someone is in immediate danger, contact local emergency services directly.</p></div></div>
+          </div>
+          <div class="prompt-chips"><button data-prompt="Someone has collapsed and is not responding.">Medical emergency</button><button data-prompt="I am stranded after my car broke down.">Vehicle breakdown</button><button data-prompt="A landslide has blocked my route.">Disaster</button></div>
+          <form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Describe the emergency</label><input id="chatInput" placeholder="Describe the situation..." autocomplete="off" maxlength="1000"><button type="submit" aria-label="Send message">Send ↑</button></form>
+          <p class="tiny-note">Prototype responses only · Not a medical diagnosis or verified live advice.</p>
+        </div>
+
+        <div class="panel resources-panel" id="resources">
+          <div class="panel-heading"><div><div class="eyebrow">LOCAL DIRECTORY</div><h2>Help resources</h2></div><span class="count-badge">SAMPLE</span></div>
+          <p class="panel-intro">These sample entries demonstrate the interface only. They are not real contacts.</p>
+          <div id="serviceList" class="service-list"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+          <div class="resource-foot">Real deployment requires verified, maintained data.</div>
+        </div>
+      </section>
+
+      <section class="panel status-panel" id="safety">
+        <div><div class="eyebrow">SYSTEM STATUS</div><h2>Designed to be honest about limits</h2><p>BDB will clearly distinguish demo actions from real notifications and show when data is missing or out of date.</p></div>
+        <div class="status-items"><div><span class="status-check">✓</span><span>Manual SOS confirmation</span></div><div><span class="status-check">✓</span><span>Explicit demo labelling</span></div><div><span class="status-pending">○</span><span>Real integrations not connected</span></div></div>
+      </section>
+      <footer>BOON D' BOT · Phase 1 prototype <span>Built for safer next steps.</span></footer>
+    </main>
+  </div>
+
+  <dialog id="sosDialog" class="sos-dialog">
+    <div class="dialog-symbol">!</div><div class="eyebrow">DEMO SAFETY CHECK</div><h2>Simulate an SOS?</h2>
+    <p>This action records a simulated event in the demo only. <strong>No call, SMS, email, or alert will be sent</strong> to emergency services or contacts.</p>
+    <div class="dialog-actions"><button class="btn btn-secondary" id="cancelSos">Cancel</button><button class="btn btn-danger" id="confirmSos">Confirm demo SOS</button></div>
+    <div id="sosResult" class="sos-result" role="status"></div>
+  </dialog>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
