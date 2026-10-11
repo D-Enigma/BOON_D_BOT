@@ -1,6 +1,6 @@
 # Changelog
 
-## Day 1 — Initial Phase 1 scaffold
+## Initial Phase 1 scaffold
 - Added Flask app and basic API endpoints.
 - Added responsive emergency overview dashboard.
 - Added demo-only SOS confirmation with an explicit no-notifications warning.
