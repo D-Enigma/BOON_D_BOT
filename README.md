@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # BOON D' BOT (BDB) — Phase 1 Demo
 
 BOON D' BOT is a crisis-response assistant prototype designed to help users find appropriate next steps during emergencies.
@@ -59,3 +60,7 @@ Each work session should produce a small, tested increment, a short changelog en
 - V2: Verified online data and supported integrations
 - V3: Essential offline capability
 - V4: Advanced device features and real-world deployment preparation
+=======
+# BOON_D_BOT
+ BDB, an AI-first disaster response prototype that uses real-time data (like tweets or  sensor feeds) to identify emergencies, classify their severity, and suggest response actions in  seconds. With this system, authorities can respond faster, smarter, and more efficiently — saving  more lives when every second counts.
+>>>>>>> origin/main
